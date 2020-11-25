@@ -20,26 +20,29 @@ class MyFirstWidgets extends StatelessWidget {
           ),
           body: Row(
             children: [
-              Container(
-                child: Text("1"),
-                color: Colors.red,
-                padding: EdgeInsets.all(30),
+              Expanded(
+                flex: 2,
+                child: Container(
+                  child: Text("1"),
+                  color: Colors.red,
+                  padding: EdgeInsets.all(30),
+                ),
               ),
-              SizedBox(
-                width: 10,
+              Expanded(
+                flex: 4,
+                child: Container(
+                  child: Text("2"),
+                  color: Colors.deepOrangeAccent,
+                  padding: EdgeInsets.all(40),
+                ),
               ),
-              Container(
-                child: Text("2"),
-                color: Colors.deepOrangeAccent,
-                padding: EdgeInsets.all(40),
-              ),
-              SizedBox(
-                width: 100,
-              ),
-              Container(
-                child: Text("3"),
-                color: Colors.redAccent,
-                padding: EdgeInsets.all(50),
+              Expanded(
+                flex: 3,
+                child: Container(
+                  child: Text("3"),
+                  color: Colors.redAccent,
+                  padding: EdgeInsets.all(50),
+                ),
               )
             ],
             mainAxisAlignment: MainAxisAlignment.center,
