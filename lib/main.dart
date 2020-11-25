@@ -1,5 +1,4 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:widgets/classes.dart';
 
@@ -18,35 +17,41 @@ class MyFirstWidgets extends StatelessWidget {
             centerTitle: true,
             backgroundColor: Colors.red,
           ),
-          body: Row(
-            children: [
-              Expanded(
-                flex: 2,
-                child: Container(
-                  child: Text("1"),
-                  color: Colors.red,
-                  padding: EdgeInsets.all(30),
+          body: Container(
+            padding: EdgeInsets.all(20),
+            decoration: BoxDecoration(
+              color: Colors.lightBlue,
+              borderRadius: BorderRadius.circular(50),
+            ),
+            child: Stack(
+              alignment: Alignment.bottomRight,
+              children: [
+                Row(
+                  children: [
+                    Container(),
+                    Text("1"),
+                    SizedBox(
+                      width: 40,
+                    ),
+                    Text("1.1"),
+                  ],
                 ),
-              ),
-              Expanded(
-                flex: 4,
-                child: Container(
-                  child: Text("2"),
-                  color: Colors.deepOrangeAccent,
-                  padding: EdgeInsets.all(40),
+                Positioned(
+                  top: 40,
+                  right: 20,
+                  child: Container(
+                    child: Text("2"),
+                    color: Colors.deepOrangeAccent,
+                    padding: EdgeInsets.all(100),
+                  ),
                 ),
-              ),
-              Expanded(
-                flex: 3,
-                child: Container(
+                Container(
                   child: Text("3"),
                   color: Colors.redAccent,
                   padding: EdgeInsets.all(50),
-                ),
-              )
-            ],
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
+                )
+              ],
+            ),
           ),
           floatingActionButton: FloatingActionButton(
             child: Text("Плюс"),
