@@ -18,39 +18,46 @@ class MyFirstWidgets extends StatelessWidget {
             backgroundColor: Colors.red,
           ),
           body: Container(
-            padding: EdgeInsets.all(20),
-            decoration: BoxDecoration(
+            child: Container(
+              width: 400,
+              height: 400,
               color: Colors.lightBlue,
-              borderRadius: BorderRadius.circular(50),
-            ),
-            child: Stack(
-              alignment: Alignment.bottomRight,
-              children: [
-                Row(
-                  children: [
-                    Container(),
-                    Text("1"),
-                    SizedBox(
-                      width: 40,
-                    ),
-                    Text("1.1"),
-                  ],
-                ),
-                Positioned(
-                  top: 40,
-                  right: 20,
-                  child: Container(
-                    child: Text("2"),
-                    color: Colors.deepOrangeAccent,
-                    padding: EdgeInsets.all(100),
+              child: Wrap(
+                spacing: 20,
+                runSpacing: 20,
+                alignment: WrapAlignment.center,
+                runAlignment: WrapAlignment.center,
+                verticalDirection: VerticalDirection.down,
+                textDirection: TextDirection.rtl,
+                children: [
+                  Container(
+                    width: 100,
+                    height: 100,
+                    color: Colors.red,
                   ),
-                ),
-                Container(
-                  child: Text("3"),
-                  color: Colors.redAccent,
-                  padding: EdgeInsets.all(50),
-                )
-              ],
+                  Container(
+                    width: 100,
+                    height: 100,
+                    color: Colors.red,
+                  ),
+                  Container(
+                    width: 100,
+                    height: 100,
+                    color: Colors.red,
+                    child: Text("X"),
+                  ),
+                  Container(
+                    width: 100,
+                    height: 100,
+                    color: Colors.red,
+                  ),
+                  Container(
+                    width: 100,
+                    height: 100,
+                    color: Colors.red,
+                  ),
+                ],
+              ),
             ),
           ),
           floatingActionButton: FloatingActionButton(
