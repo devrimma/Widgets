@@ -7,6 +7,18 @@ void main() {
 }
 
 class MyFirstWidgets extends StatelessWidget {
+
+  final List<String> txt = [
+    "Text 1",
+    "Text 2",
+    "Text 3",
+    "Text 4",
+    "Text 5",
+    "Text 6",
+    "Text 7",
+  ];
+
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -17,48 +29,11 @@ class MyFirstWidgets extends StatelessWidget {
             centerTitle: true,
             backgroundColor: Colors.red,
           ),
-          body: Container(
-            child: Container(
-              width: 400,
-              height: 400,
-              color: Colors.lightBlue,
-              child: Wrap(
-                spacing: 20,
-                runSpacing: 20,
-                alignment: WrapAlignment.center,
-                runAlignment: WrapAlignment.center,
-                verticalDirection: VerticalDirection.down,
-                textDirection: TextDirection.rtl,
-                children: [
-                  Container(
-                    width: 100,
-                    height: 100,
-                    color: Colors.red,
-                  ),
-                  Container(
-                    width: 100,
-                    height: 100,
-                    color: Colors.red,
-                  ),
-                  Container(
-                    width: 100,
-                    height: 100,
-                    color: Colors.red,
-                    child: Text("X"),
-                  ),
-                  Container(
-                    width: 100,
-                    height: 100,
-                    color: Colors.red,
-                  ),
-                  Container(
-                    width: 100,
-                    height: 100,
-                    color: Colors.red,
-                  ),
-                ],
-              ),
-            ),
+          body: ListView.builder(
+            itemCount: txt.length,
+            itemBuilder: (_, index) => Text(
+              txt[index],
+              style: TextStyle(fontSize: 100.0),),
           ),
           floatingActionButton: FloatingActionButton(
             child: Text("Плюс"),
