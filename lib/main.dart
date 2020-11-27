@@ -17,6 +17,10 @@ class MyFirstWidgets extends StatelessWidget {
     Event(name: "Event 5", location: "Location 5", date: DateTime.now()),
     Event(name: "Event 6", location: "Location 6", date: DateTime.now()),
     Event(name: "Event 7", location: "Location 7", date: DateTime.now()),
+    Event(name: "Event 8", location: "Location 8", date: DateTime.now()),
+    Event(name: "Event 9", location: "Location 9", date: DateTime.now()),
+    Event(name: "Event 10", location: "Location 10", date: DateTime.now()),
+    Event(name: "Event 11", location: "Location 11", date: DateTime.now()),
   ];
 
   @override
@@ -30,11 +34,33 @@ class MyFirstWidgets extends StatelessWidget {
             backgroundColor: Colors.red,
           ),
           body: ListView.builder(
+            physics: BouncingScrollPhysics(),
+            padding: EdgeInsets.all(30),
             itemCount: event.length,
-            itemBuilder: (_, index) => Text(
-              "$index - ${event[index].name} - ${event[index].location} "
-                  "- ${event[index].date}",
-              style: TextStyle(fontSize: 31.0),),
+            itemBuilder: (_, index) => Card(
+              color: Colors.redAccent,
+              elevation: 10,
+              shadowColor: Colors.lightBlue,
+              margin: EdgeInsets.symmetric(vertical: 7),
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10)
+              ),
+              child: Column(
+                children: [
+                  Text(
+                    "${event[index].name}",
+                    style: TextStyle(fontSize: 26.0),),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center ,
+                    children: [
+                      Text("${event[index].location}"),
+                      SizedBox(width: 15.0),
+                      Text("${event[index].date.toString()}"),
+                    ],
+                  ),
+                ],
+              ),
+            ),
           ),
           floatingActionButton: FloatingActionButton(
             child: Text("Плюс"),
