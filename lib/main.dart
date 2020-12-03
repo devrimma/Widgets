@@ -8,7 +8,6 @@ void main() {
 }
 
 class MyFirstWidgets extends StatelessWidget {
-
   final List<Event> event = [
     Event(name: "Event 1", location: "Location 1", date: DateTime.now()),
     Event(name: "Event 2", location: "Location 2", date: DateTime.now()),
@@ -35,37 +34,31 @@ class MyFirstWidgets extends StatelessWidget {
           ),
           body: ListView.builder(
             physics: BouncingScrollPhysics(),
-            padding: EdgeInsets.all(30),
+            padding: EdgeInsets.all(20),
             itemCount: event.length,
-            itemBuilder: (_, index) => Card(
-              color: Colors.redAccent,
-              elevation: 10,
-              shadowColor: Colors.lightBlue,
-              margin: EdgeInsets.symmetric(vertical: 7),
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10)
-              ),
-              child: Column(
-                children: [
-                  Text(
-                    "${event[index].name}",
-                    style: TextStyle(fontSize: 26.0),),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center ,
-                    children: [
-                      Text("${event[index].location}"),
-                      SizedBox(width: 15.0),
-                      Text("${event[index].date.toString()}"),
-                    ],
+            itemBuilder: (_, index) =>
+                Card(
+                  color: Colors.redAccent,
+                  elevation: 10,
+                  shadowColor: Colors.lightBlue,
+                  margin: EdgeInsets.symmetric(vertical: 7),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10)),
+                  child: ListTile(
+                    title: Text(
+                      "${event[index].name}",
+                      style: TextStyle(fontSize: 20.0,),
+                    ),
+                    subtitle: Text(
+                      "${event[index].location} ${event[index].date}",),
+                    trailing: IconButton(
+                      icon: Icon(Icons.edit),
+                      onPressed: () => print("Редактировать"),
+                    ),
+                    onTap: () => print("Открыть"),
+                    onLongPress: () => print("Удалить"),
                   ),
-                ],
-              ),
-            ),
-          ),
-          floatingActionButton: FloatingActionButton(
-            child: Text("Плюс"),
-            backgroundColor: Colors.red,
-            onPressed: null,
+                ),
           ),
           backgroundColor: Colors.white,
         ));
